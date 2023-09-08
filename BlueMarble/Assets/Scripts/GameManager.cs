@@ -1,0 +1,46 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class GameManager : MonoBehaviour
+{
+    /*
+     * GameManager
+     *  - Static한 정보들을 들고있는다. 
+     *  - 씬이 이동되더라도 계속 유지되어야하는 Player 정보 등이 들어있다 . 
+     *  - 실제 기능을 GameManager가 들고 있는다.      
+     * */
+
+
+    public static GameManager Instance;
+
+    private AsyncOperation LoadingOp; // ?
+
+
+    // 항상 메모리에 떠있고 다른 씬에서도 사용할 수 있도록 설정 
+    public void Awake()
+    {
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public void LoadScene(string sceneName, bool activation = true)
+    {
+        LoadingOp = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
+        LoadingOp.allowSceneActivation = activation;
+    }
+}
