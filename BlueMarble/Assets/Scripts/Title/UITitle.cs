@@ -19,15 +19,19 @@ public class UITitle : MonoBehaviour
     // 게임시작 버튼 
     public Button StartGameButton;
 
+    // 캐릭터 선택 버튼
+    //public Button[] Characters;
+
     void Start()
     {
-        StartGameButton.onClick.AddListener(StartGameBtnClicked);
+        StartGameButton.onClick.AddListener(HandleStartGameBtnClicked);
+        //Characters[].onClick.AddListener(On)
     }
 
     /**
      * PlayBoard Scene 호출
      */
-    private void StartGameBtnClicked()
+    private void HandleStartGameBtnClicked()
     {
         GameManager.Instance.LoadScene("PlayBoard");
     }
