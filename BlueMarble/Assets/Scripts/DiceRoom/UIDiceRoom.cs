@@ -38,7 +38,7 @@ public class UIDiceRoom : MonoBehaviour
 
     private void OnRollingDiceBtnClicked()
     {
-        Debug.Log("Rolling Button Click");
+        Debug.Log("Call OnRollingDiceBtnClicked");
         DiceRoom.RollDice();
         // Dice.Rolling();
     }

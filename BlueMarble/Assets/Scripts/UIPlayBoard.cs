@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +12,7 @@ public class UIPlayBoard : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //GameManager.Instance.Dice.gameObject.SetActive(false);
+        //GameManager.Instance.Dice.gameObject.SetActive(false); -> 주사위룸에서 active되어 방으로 다시 나오면 상태유지되나?
         RollingDiceButton.onClick.AddListener(HandleRollingDiceBtnClicked);
     }
 
