@@ -1,35 +1,66 @@
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
+using UnityEditor.PackageManager.Requests;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Dice : MonoBehaviour
 {
+    Rigidbody Rb;
+    Vector3 InitPosition;
+
+    private bool hasLanded;
+    private bool isThrown;
+
     public DiceSide[] DiseSides;
 
-    // ÁÖ»çÀ§ÀÇ ¼ıÀÚ 
+    private void Awake()
+    {
+        //ê²Œì„ ì‹œì‘ í›„ ì”¬ì´ ë³€ê²½ë˜ë”ë¼ë„ Instanceë¥¼ ìœ ì§€í•´ì•¼í•¨
+        DontDestroyOnLoad(gameObject);
+    }
+
+    public bool HasLanded()
+    {
+        return hasLanded;
+    }
+
+    public bool IsThrown()
+    {
+        return isThrown;
+    }
+
+
+
+    // ì£¼ì‚¬ìœ„ì˜ ìˆ«ì 
     public int DiceNumber { get; private set; }
-    // Start is called before the first frame update
+
     void Start()
     {
-        
+        Rb = GetComponent<Rigidbody>();
+        // ì£¼ì‚¬ìœ„ì˜ ì´ˆê¸° ìœ„ì¹˜ë¥¼ ë“¤ê³ ì˜¨ë‹¤
+        InitPosition = transform.position;
+        Rb.useGravity = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+
     }
 
 
-    // ÁÖ»çÀ§¸¦ ±¼·Á¼­ ³ª¿Â ¼ıÀÚ¸¦ °¡Á®¿Â´Ù
-    // ¹Ù´ÚÀÇ ´êÀº ÁÖ»çÀ§ ¸éÀ» ÅëÇØ¼­
+    // ì£¼ì‚¬ìœ„ë¥¼ êµ´ë ¤ì„œ ë‚˜ì˜¨ ìˆ«ìë¥¼ ê°€ì ¸ì˜¨ë‹¤
+    // ë°”ë‹¥ì˜ ë‹¿ì€ ì£¼ì‚¬ìœ„ ë©´ì„ í†µí•´ì„œ
     void SideNumberCheck()
     {
         Debug.Log("Call Number Check");
         DiceNumber = 0;
 
-        foreach(DiceSide number in DiseSides)
+        foreach (DiceSide number in DiseSides)
         {
             if (number.GetOnGround())
             {
@@ -40,4 +71,31 @@ public class Dice : MonoBehaviour
 
     }
 
+    // ì£¼ì‚¬ìœ„ë¥¼ ë˜ì§„ë‹¤.
+    internal void Roll()
+    {
+        Debug.Log("Call Dice.Roll");
+        // ë˜ì ¸ì§„ ìƒíƒœê°€ ì•„ë‹ˆë©´?
+        //if (!IsThrown && !HasLanded)
+        //{
+        isThrown = true;
+        Rb.useGravity = true;
+        Rb.AddTorque(Random.Range(0, 500), Random.Range(0, 500), Random.Range(0, 500));
+        //} 
+        // ë˜ì ¸ì§„ ìƒíƒœë¼ë©´?
+        //else
+        //{
+        //    Reset();
+        //    Debug.Log("Why need to reset?");
+        //}
+    }
+
+    // ì£¼ì‚¬ìœ„ì˜ ìœ„ì¹˜ë¥¼ ë¦¬ì…‹í•œë‹¤
+    public void Reset()
+    {
+        transform.position = InitPosition;
+        isThrown = false;
+        hasLanded = false;
+        Rb.useGravity = false;
+    }
 }

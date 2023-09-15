@@ -18,6 +18,11 @@ public class GameManager : MonoBehaviour
 
     private AsyncOperation LoadingOp; // ?
 
+    // 주사위
+    public GameObject DicePrefab;
+    public Dice Dice;
+    //public Transform DiceSpawnPoint;
+
 
     // 항상 메모리에 떠있고 다른 씬에서도 사용할 수 있도록 설정 
     public void Awake()
@@ -29,13 +34,20 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        LoadDice();
+    }
+
+    private void LoadDice()
+    {
+        //GameObject go = Instantiate((GameObject)Dice, DiceSpawnPoint.position, DiceSpawnPoint.rotation);
+        GameObject go = Instantiate(DicePrefab, DicePrefab.transform.position, DicePrefab.transform.rotation);
+        Dice = go.GetComponent<Dice>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void LoadScene(string sceneName, bool activation = true)
