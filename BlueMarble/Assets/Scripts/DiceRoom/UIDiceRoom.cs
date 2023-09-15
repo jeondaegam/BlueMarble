@@ -28,8 +28,9 @@ public class UIDiceRoom : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //주사위 Active
-        GameManager.Instance.Dice.gameObject.SetActive(true);
+        // Dice Renderer enable
+        GameManager.Instance.Dice.gameObject.GetComponent<MeshRenderer>()
+            .enabled = enabled;
         // 버튼 클릭말고 스페이스바로 구현하면 좋을듯 -> 오래 누를수록 +게이지 
         RollingDiceButton.onClick.AddListener(OnRollingDiceBtnClicked);
         
