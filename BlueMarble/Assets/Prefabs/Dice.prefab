@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181817198944450493}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.7, z: 0}
+  m_LocalPosition: {x: 0, y: 0.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc17adbadded744669ff3ec35e302540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SideValue: 2
+  SideNumber: 2
 --- !u!1 &789311313699405525
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,7 +147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 789311313699405525}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.78}
+  m_LocalPosition: {x: 0, y: -0, z: 1.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc17adbadded744669ff3ec35e302540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SideValue: 6
+  SideNumber: 6
 --- !u!1 &4191785338889631028
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,7 +266,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4191785338889631028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7, y: 0, z: 0}
+  m_LocalPosition: {x: 0.82, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -356,7 +356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc17adbadded744669ff3ec35e302540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SideValue: 3
+  SideNumber: 3
 --- !u!1 &4973096317919907639
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,7 +385,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4973096317919907639}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.7, z: 0}
+  m_LocalPosition: {x: -0, y: -0.725, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -475,7 +475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc17adbadded744669ff3ec35e302540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SideValue: 5
+  SideNumber: 5
 --- !u!1 &6747813058734093168
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,7 +594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc17adbadded744669ff3ec35e302540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SideValue: 4
+  SideNumber: 4
 --- !u!1 &7334076804362816018
 GameObject:
   m_ObjectHideFlags: 0
@@ -623,7 +623,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7334076804362816018}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.7}
+  m_LocalPosition: {x: -0, y: 0, z: -0.82}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -713,7 +713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc17adbadded744669ff3ec35e302540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SideValue: 1
+  SideNumber: 1
 --- !u!1 &8584335648960835096
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,7 +743,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8584335648960835096}
-  m_LocalRotation: {x: -0.4224774, y: -0.041900035, z: 0.86355627, w: 0.27208063}
+  m_LocalRotation: {x: -0.42247742, y: -0.04189792, z: 0.86355484, w: 0.27208543}
   m_LocalPosition: {x: 1, y: 6, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 1
@@ -772,7 +772,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8584335648960835096}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -863,7 +863,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -880,10 +880,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfc4c3ef0debc43b48b8c3da4ab9336f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasLanded: 0
+  isThrown: 0
   DiseSides:
   - {fileID: 4076535134069765833}
-  - {fileID: 513060560912643583}
+  - {fileID: 2805578558040728654}
   - {fileID: 7926145342925718783}
   - {fileID: 1578751679712804785}
   - {fileID: 6815139638850660116}
-  - {fileID: 2805578558040728654}
+  - {fileID: 513060560912643583}

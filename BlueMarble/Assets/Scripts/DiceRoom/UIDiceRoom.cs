@@ -14,7 +14,7 @@ public class UIDiceRoom : MonoBehaviour
     private void OnEnable()
     {
         // 주사위 굴리기 버튼 클릭 리스너 
-        RollingDiceButton.onClick.AddListener(OnRollingDiceBtnClicked);
+        //RollingDiceButton.onClick.AddListener(OnRollingDiceBtnClicked);
     }
 
     private void OnDisable()
@@ -38,9 +38,7 @@ public class UIDiceRoom : MonoBehaviour
 
     private void OnRollingDiceBtnClicked()
     {
-        Debug.Log("Call OnRollingDiceBtnClicked");
         DiceRoom.RollDice();
-        // Dice.Rolling();
     }
 
     // Update is called once per frame
