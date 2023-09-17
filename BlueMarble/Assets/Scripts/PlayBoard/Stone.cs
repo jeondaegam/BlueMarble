@@ -8,8 +8,9 @@ public class Stone : MonoBehaviour
     // 현재 위치
     public Route CurrentRoute;
 
-    // 이동해야하는 말판 위치
+    // 다음 칸의 위치: 이동할 때 마다 1칸씩 증가
     private int RoutePosition;
+    private int NextNode;
 
     // 이동해야하는 칸 수
     public int Steps;
@@ -50,28 +51,28 @@ public class Stone : MonoBehaviour
         //GameManager.Instance.Dice.OnNumberChanged += Move();
     }
 
-    private void MoveStep()
-    {
-        IsMoving = true;
-        while (Steps > 0)
-        {
-            Debug.Log(1);
-            RoutePosition++;
-            RoutePosition %= CurrentRoute.ChildNodeList.Count;
-            //Debug.Log($"CurrentRoute::{CurrentRoute} , RoutePosition: {RoutePosition}");
-            Debug.Log(2);
-            Vector3 nextPosition = CurrentRoute.ChildNodeList[RoutePosition].position;
+    //private void MoveStep()
+    //{
+    //    IsMoving = true;
+    //    while (Steps > 0)
+    //    {
+    //        Debug.Log(1);
+    //        RoutePosition++;
+    //        RoutePosition %= CurrentRoute.ChildNodeList.Count;
+    //        //Debug.Log($"CurrentRoute::{CurrentRoute} , RoutePosition: {RoutePosition}");
+    //        Debug.Log(2);
+    //        Vector3 nextPosition = CurrentRoute.ChildNodeList[RoutePosition].position;
 
-            Debug.Log(3);
-            //Debug.Log($"nextPosition: {nextPosition}");
+    //        Debug.Log(3);
+    //        //Debug.Log($"nextPosition: {nextPosition}");
 
-            if (MoveToNextNode(nextPosition))
-            {
-                Debug.Log(4);
-                Steps--;
-            }
-        }
-    }
+    //        if (MoveToNextNode(nextPosition))
+    //        {
+    //            Debug.Log(4);
+    //            Steps--;
+    //        }
+    //    }
+    //}
 
     public IEnumerator Move()
     {
@@ -81,16 +82,24 @@ public class Stone : MonoBehaviour
         }
         IsMoving = true;
 
+
         while (Steps > 0)
         {
             RoutePosition++;
             RoutePosition %= CurrentRoute.ChildNodeList.Count;
+            NextNode = RoutePosition + 1;
 
-            //Debug.Log($"CurrentRoute::{CurrentRoute} , RoutePosition: {RoutePosition}");
 
             Vector3 nextPosition = CurrentRoute.ChildNodeList[RoutePosition].position;
 
+            Debug.Log($"현재위치::{CurrentRoute.transform} , 루트포지션 : {RoutePosition}, 다음 포지션 : {NextNode}");
             //Debug.Log($"nextPosition: {nextPosition}");
+
+            if (RoutePosition == 0 || RoutePosition == CurrentRoute.ChildNodeList.Count)
+            {
+                Steps = 1;
+                Debug.Log("움직임 종료");
+            } 
 
             while(MoveToNextNode(nextPosition))
             {
@@ -100,7 +109,6 @@ public class Stone : MonoBehaviour
             Steps--;
             //RoutePosition++;
         }
-        Debug.Log(5);
         IsMoving = false;
     }
 

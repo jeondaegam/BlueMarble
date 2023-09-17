@@ -48,10 +48,4 @@ public class Route : MonoBehaviour
     {
         FillNodes();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
