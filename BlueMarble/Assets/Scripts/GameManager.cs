@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
      *  - 실제 기능을 GameManager가 들고 있는다.      
      * */
 
-
     public static GameManager Instance;
 
     private AsyncOperation LoadingOp; // ?

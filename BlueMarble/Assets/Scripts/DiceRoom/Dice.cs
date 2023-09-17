@@ -1,8 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class Dice : MonoBehaviour
 {
+
+    public event Action OnNumberChanged;
+
     private Rigidbody rb;
     private Vector3 InitPosition;
 
@@ -54,27 +58,6 @@ public class Dice : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    Roll();
-        //}
-
-        //if (rb.IsSleeping() && !hasLanded && isThrown)
-        //{
-        //    Debug.Log("여기?");
-        //    hasLanded = true;
-        //    rb.useGravity = false;
-        //    DiceNumberCheck();
-        //    Invoke("DiceNumberCheck", 3);
-        //    new WaitForSeconds(3f);
-
-        //}
-        //if (rb.IsSleeping() && hasLanded && isThrown)
-        //{
-        //    Debug.Log("Roll Again");
-        //    RollAgain();
-        //}
-
     }
 
 
@@ -91,6 +74,11 @@ public class Dice : MonoBehaviour
                 DiceNumber = number.SideNumber;
             }
         }
+        if (OnNumberChanged != null)
+        {
+            Debug.Log($"complete event call!! {DiceNumber}");
+            OnNumberChanged();
+        }
         return DiceNumber;
     }
 
@@ -99,7 +87,7 @@ public class Dice : MonoBehaviour
     {
         isThrown = true;
         rb.useGravity = true;
-        rb.AddTorque(Random.Range(0, 500), Random.Range(0, 500), Random.Range(0, 500));
+        rb.AddTorque(Random.Range(0, 700), Random.Range(0, 500), Random.Range(0, 1000));
         //DiceNumberCheck();
     }
 
@@ -117,95 +105,3 @@ public class Dice : MonoBehaviour
         Reset();
     }
 }
-
-
-//using System.Collections;
-//using System.Collections.Generic;
-//using UnityEditor.PackageManager.Requests;
-//using UnityEngine;
-
-//public class Dice : MonoBehaviour
-//{
-//    Rigidbody rb;
-
-//    bool hasLanded;
-//    bool thrown;
-//    Vector3 initPosition;
-//    public int diceValue;
-
-//    public DiceSide[] diceSides;
-
-//    // Start is called before the first frame update
-//    void Start()
-//    {
-//        rb = GetComponent<Rigidbody>();
-//        initPosition = transform.position;
-//        rb.useGravity = false;
-//    }
-
-//    // Update is called once per frame
-//    void Update()
-//    {
-//        if (Input.GetKeyDown(KeyCode.Space))
-//        {
-//            RollDice();
-//        }
-
-//        if (rb.IsSleeping() && !hasLanded && thrown)
-//        {
-//            hasLanded = true;
-//            rb.useGravity = false;
-//            SideValueCheck();
-
-//        }
-//        else if (rb.IsSleeping() && hasLanded && diceValue == 0)
-//        {
-//            //RollAgain();
-//        }
-
-//    }
-
-
-//    private void RollDice()
-//    {
-//        // ������ ���°� �ƴϸ� ������ 
-//        if (!thrown && !hasLanded)
-//        {
-//            thrown = true;
-//            rb.useGravity = true;
-//            rb.AddTorque(Random.Range(0, 500), Random.Range(0, 500), Random.Range(0, 500));
-//            //SideValueCheck();
-//            //rb.isKinematic = true;
-//        }
-//        else
-//        {
-//            Reset();
-//        }
-//    }
-
-//    private void Reset()
-//    {
-//        transform.position = initPosition;
-//        thrown = false;
-//        hasLanded = false;
-//        rb.useGravity = false;
-//        //rb.isKinematic = false;
-//    }
-
-//    void SideValueCheck()
-//    {
-//        Debug.Log("Call value check");
-//        diceValue = 0;
-//        foreach (DiceSide side in diceSides)
-//        {
-//            //Debug.Log("in foreach");
-//            //Debug.Log($"side number : {side.sideValue}");
-//            if (side.GetOnGround())
-//            {
-//                diceValue = side.sideValue;
-//                Debug.Log($"{diceValue} has been rolled!");
-//            }
-//        }
-//    }
-
-

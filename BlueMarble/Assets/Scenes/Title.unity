@@ -581,7 +581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267e49fb4ea5347b1a83adea5fcf5daa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DicePrefab: {fileID: 8584335648960835096, guid: 13e71564bc662534bab1ef4af3498d17,
+  DicePrefab: {fileID: 2208639779965895213, guid: 774db49c99fb74b019b4ca24aeeaa2a9,
     type: 3}
   Dice: {fileID: 0}
 --- !u!4 &898040004

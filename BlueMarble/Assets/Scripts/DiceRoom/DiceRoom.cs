@@ -7,7 +7,7 @@ public class DiceRoom : MonoBehaviour
 {
     public Dice Dice;
     private Rigidbody Rb;
-    public int DiceNumber;
+    public int DiceNumber = 0;
 
     public void RollDice()
     {
@@ -41,31 +41,6 @@ public class DiceRoom : MonoBehaviour
 
     private void Update()
     {
-        //if (Rb.IsSleeping()
-        //    && !GameManager.Instance.Dice.HasLanded()
-        //    && GameManager.Instance.Dice.IsThrown())
-        //{
-        //    Debug.Log("Side number check");
-        //    GameManager.Instance.Dice.SwitchingHasLanded();
-        //    GameManager.Instance.Dice.SwitchingIsThrown();
-        //    GameManager.Instance.Dice.SideNumberCheck();
-        //}
-        //if (Rb.IsSleeping()
-        //    && !GameManager.Instance.Dice.hasLanded
-        //    && GameManager.Instance.Dice.isThrown )
-        //{
-        //    Debug.Log("ok");
-        //    GameManager.Instance.Dice.hasLanded = true;
-        //    Rb.useGravity = false;
-        //    DiceNumber = GameManager.Instance.Dice.DiceNumberCheck();
-        //    Debug.Log($"{DiceNumber} has been rolled!");
-        //} else if (Rb.IsSleeping()
-        //    && GameManager.Instance.Dice.hasLanded
-        //    && GameManager.Instance.Dice.isThrown)
-        //{
-        //    Debug.Log("Roll Again");
-        //    GameManager.Instance.Dice.RollAgain();
-        //}
         if (!Dice.hasLanded && Rb.IsSleeping() && Dice.isThrown)
         {
             Dice.hasLanded = true;
