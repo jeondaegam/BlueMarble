@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIDiceRoom : MonoBehaviour
@@ -19,12 +20,19 @@ public class UIDiceRoom : MonoBehaviour
         GameManager.Instance.Dice.OnNumberChanged += UpdateDiceNumberUI;
         // 주사위 숫자 변경 -> 플레이보드로 씬 이동
         GameManager.Instance.Dice.OnNumberChanged += MoveToPlayBoard;
-        // Listener
+
+        // Event Listener
         // 주사위 굴리기 버튼 클릭
         RollingDiceButton.onClick.AddListener(OnRollingDiceBtnClicked);
 
+        SceneManager.activeSceneChanged += OnSceneChanged;
+
     }
 
+    private void OnSceneChanged(Scene arg0, Scene arg1)
+    {
+        Debug.Log("Dice room 씬으로 왔어용 ~ ");
+    }
 
     private void OnDisable()
     {

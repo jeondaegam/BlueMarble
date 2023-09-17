@@ -584,6 +584,10 @@ MonoBehaviour:
   DicePrefab: {fileID: 2208639779965895213, guid: 774db49c99fb74b019b4ca24aeeaa2a9,
     type: 3}
   Dice: {fileID: 0}
+  PlayerPrefabs:
+  - {fileID: 6066249875612878708, guid: dd6346997745e43d093b49622f68ab50, type: 3}
+  Stones:
+  - {fileID: 0}
 --- !u!4 &898040004
 Transform:
   m_ObjectHideFlags: 0

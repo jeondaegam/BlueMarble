@@ -5,18 +5,31 @@ using UnityEngine;
 
 public class Stone : MonoBehaviour
 {
+    // 현재 위치
     public Route CurrentRoute;
+
+    // 이동해야하는 말판 위치
+    private int RoutePosition;
 
     // 이동해야하는 칸 수
     public int Steps;
 
-    private int RoutePosition;
-
     private bool IsMoving;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
+    private void OnEnable()
+    {
+        Steps = GameManager.Instance.Dice.DiceNumber;
+
+    }
 
     private void Start()
     {
-        Steps = GameManager.Instance.Dice.DiceNumber;
+        //Steps = GameManager.Instance.Dice.DiceNumber;
     }
 
     private void Update()
@@ -28,17 +41,13 @@ public class Stone : MonoBehaviour
             // 주사위 굴리기
             //Steps = Random.Range(1, 4);
             Steps = GameManager.Instance.Dice.DiceNumber;
-            //Debug.Log("Dice Rolled ::" + Steps);
+            Debug.Log("Dice Rolled ::" + Steps);
 
             StartCoroutine(Move());
             //MoveStep();
 
         }
-
         //GameManager.Instance.Dice.OnNumberChanged += Move();
-
-
-
     }
 
     private void MoveStep()

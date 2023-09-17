@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIPlayBoard : MonoBehaviour
@@ -11,7 +12,18 @@ public class UIPlayBoard : MonoBehaviour
 
     private void OnEnable()
     {
+        // 씬이 로드되었을 때 step이 0 보다 크면 플레이어를 이동
+
         //GameManager.Instance.Dice.OnNumberChanged += MoveToPlayBoard;
+        //SceneMASceneManager.activeSceneChanged += OnSceneChanged;
+
+        SceneManager.activeSceneChanged += OnSceneChanged;
+    }
+
+    private void OnSceneChanged(Scene previousScene, Scene newScene)
+    {
+        Debug.Log("Play Board로 왔어요 ~ ");
+        GameManager.Instance.Stones[0].Steps = GameManager.Instance.Dice.DiceNumber;
     }
 
     private void MoveToPlayBoard()

@@ -21,6 +21,12 @@ public class GameManager : MonoBehaviour
     public GameObject DicePrefab;
     public Dice Dice;
 
+    // 플레이어
+    public GameObject[] PlayerPrefabs;
+
+    public Stone[] Stones;
+
+
     // 항상 메모리에 떠있고 다른 씬에서도 사용할 수 있도록 설정 
     public void Awake()
     {
@@ -32,12 +38,25 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         LoadDice();
+        SpawnPlayers();
     }
+
 
     private void LoadDice()
     {
         GameObject go = Instantiate(DicePrefab, DicePrefab.transform.position, DicePrefab.transform.rotation);
         Dice = go.GetComponent<Dice>();
+    }
+
+
+    private void SpawnPlayers()
+    {
+       for (int i=0; i <PlayerPrefabs.Length; i++)
+        {
+            GameObject go = Instantiate(PlayerPrefabs[i],
+                PlayerPrefabs[i].transform.position, PlayerPrefabs[i].transform.rotation);
+            Stones[i] = go.GetComponent<Stone>();
+        } 
     }
 
     // Update is called once per frame
