@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c26b9fc97791a4ea06c30ba68ecbc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentRoute: {fileID: 0}
+  CurrentRoute: {fileID: 3955381781035656122, guid: a908f61e92c7840b1af0e877559a375b,
+    type: 3}
   Steps: 0
 --- !u!1 &6666084012016938819
 GameObject:

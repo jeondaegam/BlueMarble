@@ -86,11 +86,11 @@ public class Stone : MonoBehaviour
             RoutePosition++;
             RoutePosition %= CurrentRoute.ChildNodeList.Count;
 
-            Debug.Log($"CurrentRoute::{CurrentRoute} , RoutePosition: {RoutePosition}");
+            //Debug.Log($"CurrentRoute::{CurrentRoute} , RoutePosition: {RoutePosition}");
 
             Vector3 nextPosition = CurrentRoute.ChildNodeList[RoutePosition].position;
 
-            Debug.Log($"nextPosition: {nextPosition}");
+            //Debug.Log($"nextPosition: {nextPosition}");
 
             while(MoveToNextNode(nextPosition))
             {

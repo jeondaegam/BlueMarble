@@ -17,8 +17,14 @@ public class UIPlayBoard : MonoBehaviour
         //GameManager.Instance.Dice.OnNumberChanged += MoveToPlayBoard;
         //SceneMASceneManager.activeSceneChanged += OnSceneChanged;
 
-        SceneManager.activeSceneChanged += OnSceneChanged;
+        SceneManager.activeSceneChanged += OnSceneChanged; // 얘만 설정하니까 씬이 로드될 때 & 다른씬으로 넘어갈때 2번 호출됨 
     }
+
+    private void OnDisable()
+    {
+        SceneManager.activeSceneChanged -= OnSceneChanged; // 그래서 얘를 추가함 
+    }
+
 
     private void OnSceneChanged(Scene previousScene, Scene newScene)
     {
@@ -40,7 +46,6 @@ public class UIPlayBoard : MonoBehaviour
 
     private void HandleRollingDiceBtnClicked()
     {
-        Debug.Log("go to dice room");
         GameManager.Instance.LoadScene("DiceRoom");
     }
 
