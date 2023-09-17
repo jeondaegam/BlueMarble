@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,31 +14,57 @@ public class Stone : MonoBehaviour
 
     private bool IsMoving;
 
+    private void Start()
+    {
+        Steps = GameManager.Instance.Dice.DiceNumber;
+    }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !IsMoving)
+        //if (Input.GetKeyDown(KeyCode.Space) && !IsMoving)
+        //if (GameManager.Instance.Dice.DiceNumber > 0 && !IsMoving)
+        if(Steps > 0 && !IsMoving) 
         {
-            //주사위 굴리기
-            Steps = Random.Range(1, 4);
-            Debug.Log("Dice Rolled ::" + Steps);
+            // 주사위 굴리기
+            //Steps = Random.Range(1, 4);
+            Steps = GameManager.Instance.Dice.DiceNumber;
+            //Debug.Log("Dice Rolled ::" + Steps);
 
             StartCoroutine(Move());
+            //MoveStep();
 
-            //if (RoutePosition + Steps < CurrentRoute.ChildNodeList.Count)
-            //{
-            //    StartCoroutine(Move());
-            //}
-            //else
-            //{
-            //    Debug.Log("Rolled Number is to high");
-            //}
+        }
 
+        //GameManager.Instance.Dice.OnNumberChanged += Move();
+
+
+
+    }
+
+    private void MoveStep()
+    {
+        IsMoving = true;
+        while (Steps > 0)
+        {
+            Debug.Log(1);
+            RoutePosition++;
+            RoutePosition %= CurrentRoute.ChildNodeList.Count;
+            //Debug.Log($"CurrentRoute::{CurrentRoute} , RoutePosition: {RoutePosition}");
+            Debug.Log(2);
+            Vector3 nextPosition = CurrentRoute.ChildNodeList[RoutePosition].position;
+
+            Debug.Log(3);
+            //Debug.Log($"nextPosition: {nextPosition}");
+
+            if (MoveToNextNode(nextPosition))
+            {
+                Debug.Log(4);
+                Steps--;
+            }
         }
     }
 
-
-    IEnumerator Move()
+    public IEnumerator Move()
     {
         if (IsMoving)
         {
@@ -64,6 +91,7 @@ public class Stone : MonoBehaviour
             Steps--;
             //RoutePosition++;
         }
+        Debug.Log(5);
         IsMoving = false;
     }
 

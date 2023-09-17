@@ -15,18 +15,16 @@ public class UIDiceRoom : MonoBehaviour
 
     private void OnEnable()
     {
-        //DiceRoom = GetComponent<DiceRoom>();
-        // Update UI
-        //DiceNumber.UpdateUI(GameManager.Instance.Dice.DiceNumber.ToString());
-        //UpdateNumber();
-
+        // 주사위 숫자 Update UI
         GameManager.Instance.Dice.OnNumberChanged += UpdateDiceNumberUI;
-
+        // 주사위 숫자 변경 -> 플레이보드로 씬 이동
+        GameManager.Instance.Dice.OnNumberChanged += MoveToPlayBoard;
         // Listener
-        // 주사위 굴리기 버튼 클릭 ㅇ
+        // 주사위 굴리기 버튼 클릭
         RollingDiceButton.onClick.AddListener(OnRollingDiceBtnClicked);
 
     }
+
 
     private void OnDisable()
     {
@@ -39,7 +37,6 @@ public class UIDiceRoom : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         // Dice Renderer enable
         GameManager.Instance.Dice.gameObject.GetComponent<MeshRenderer>()
             .enabled = enabled;
@@ -52,7 +49,6 @@ public class UIDiceRoom : MonoBehaviour
     {
         DiceRoom.RollDice();
         Debug.Log($"Number is {GameManager.Instance.Dice.DiceNumber}");
-        //UpdateNumber();
     }
 
 
@@ -62,10 +58,9 @@ public class UIDiceRoom : MonoBehaviour
             "Number :" + GameManager.Instance.Dice.DiceNumber.ToString();
     }
 
-
-    // Update is called once per frame
-    void Update()
+    private void MoveToPlayBoard()
     {
-        
+        GameManager.Instance.LoadScene("PlayBoard");
     }
+
 }

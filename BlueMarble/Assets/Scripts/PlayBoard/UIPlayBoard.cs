@@ -9,6 +9,16 @@ public class UIPlayBoard : MonoBehaviour
 
     public Button RollingDiceButton;
 
+    private void OnEnable()
+    {
+        //GameManager.Instance.Dice.OnNumberChanged += MoveToPlayBoard;
+    }
+
+    private void MoveToPlayBoard()
+    {
+        //Stone.Move
+    }
+
     // Start is called before the first frame update
     void Start()
     {
