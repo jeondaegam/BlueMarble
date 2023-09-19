@@ -37,7 +37,7 @@ public class Stone : MonoBehaviour
     {
         //if (Input.GetKeyDown(KeyCode.Space) && !IsMoving)
         //if (GameManager.Instance.Dice.DiceNumber > 0 && !IsMoving)
-        if(Steps > 0 && !IsMoving) 
+        if (Steps > 0 && !IsMoving)
         {
             // 주사위 굴리기
             //Steps = Random.Range(1, 4);
@@ -92,16 +92,15 @@ public class Stone : MonoBehaviour
 
             Vector3 nextPosition = CurrentRoute.ChildNodeList[RoutePosition].position;
 
-            Debug.Log($"현재위치::{CurrentRoute.transform} , 루트포지션 : {RoutePosition}, 다음 포지션 : {NextNode}");
-            //Debug.Log($"nextPosition: {nextPosition}");
+            Debug.Log($"현재위치::{CurrentRoute.transform} , 목적지 : {RoutePosition}, 다음칸 : {NextNode}");
 
-            if (RoutePosition == 0 || RoutePosition == CurrentRoute.ChildNodeList.Count)
+            if (RoutePosition == 0 || (RoutePosition == CurrentRoute.ChildNodeList.Count - 1))
             {
                 Steps = 1;
                 Debug.Log("움직임 종료");
-            } 
+            }
 
-            while(MoveToNextNode(nextPosition))
+            while (MoveToNextNode(nextPosition))
             {
                 yield return null;
             }
