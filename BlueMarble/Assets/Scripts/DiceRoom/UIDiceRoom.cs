@@ -16,10 +16,13 @@ public class UIDiceRoom : MonoBehaviour
 
     private void OnEnable()
     {
-        // 주사위 숫자 Update UI
+        // 나온 숫자를 화면에 띄운다 -> UI Update
         GameManager.Instance.Dice.OnNumberChanged += UpdateDiceNumberUI;
         // 주사위 숫자 변경 -> 플레이보드로 씬 이동
-        GameManager.Instance.Dice.OnNumberChanged += MoveToPlayBoard;
+        //GameManager.Instance.Dice.OnNumberChanged += MoveToPlayBoard;
+
+        // 주사위 리셋 후 화면 전환
+        GameManager.Instance.Dice.OnDiceReset += MoveToPlayBoard;
 
         // Event Listener
         // 주사위 굴리기 버튼 클릭

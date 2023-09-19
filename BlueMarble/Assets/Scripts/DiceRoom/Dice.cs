@@ -4,8 +4,11 @@ using Random = UnityEngine.Random;
 
 public class Dice : MonoBehaviour
 {
-
+    // 주사위의 숫자가 바뀌면 호출한다.
     public event Action OnNumberChanged;
+
+    // 주사위 위치 리셋 시 호출한다.
+    public event Action OnDiceReset;
 
     private Rigidbody rb;
     private Vector3 InitPosition;
@@ -94,14 +97,25 @@ public class Dice : MonoBehaviour
     // 주사위의 위치를 리셋한다
     public void Reset()
     {
-        transform.position = InitPosition;
-        isThrown = false;
         hasLanded = false;
+        isThrown = false;
         rb.useGravity = false;
+        transform.position = InitPosition;
     }
 
     public void RollAgain()
     {
         Reset();
-    }
+        // 씬 전환하라는 이벤트를 호출 
+        if (OnDiceReset != null)
+        {
+            Invoke("CallOnDiceResetEvent", 2);
+        }
+    }
+
+    private void CallOnDiceResetEvent()
+    {
+        OnDiceReset();
+    }
+
 }

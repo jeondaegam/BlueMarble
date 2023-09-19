@@ -11,25 +11,8 @@ public class DiceRoom : MonoBehaviour
 
     public void RollDice()
     {
-
-        //// 던져지지 않은 상태라면?
-        //if (!GameManager.Instance.Dice.hasLanded
-        //    && !GameManager.Instance.Dice.IsThrown())
-        //{
-        //    Debug.Log("Roll");
-        //    GameManager.Instance.Dice.Roll();
-        //    GameManager.Instance.Dice.SideNumberCheck();
-        //}
-
-        //// 던져진 상태라면?
-        //else
-        //{
-        //    GameManager.Instance.Dice.Reset();
-        //}
-
-        //GameManager.Instance.Dice.Roll();
         Dice.Roll();
-        //GameManager.Instance.Dice.SideNumberCheck();
+        //StartCoroutine(DiceReset());
 
     }
 
@@ -48,12 +31,35 @@ public class DiceRoom : MonoBehaviour
             DiceNumber = Dice.DiceNumberCheck();
             Debug.Log($"{DiceNumber} has been rolled!");
 
-        } else if (Rb.IsSleeping() && Dice.isThrown)
-             //else if (Rb.IsSleeping() && Dice.hasLanded && Dice.isThrown)
-                {
+        }
+        else if (Rb.IsSleeping() && Dice.isThrown)
+        //else if (Rb.IsSleeping() && Dice.hasLanded && Dice.isThrown)
+        {
             Debug.Log("Roll Again");
             Dice.RollAgain();
         }
     }
+
+    //IEnumerator DiceReset()
+    //{
+    //    Debug.Log("Call coroutine");
+    //    yield return new WaitForSeconds(2f);
+
+    //    if (!Dice.hasLanded && Rb.IsSleeping() && Dice.isThrown)
+    //    {
+    //        Debug.Log("요기1");
+    //        Dice.hasLanded = true;
+    //        Rb.useGravity = false;
+    //        DiceNumber = Dice.DiceNumberCheck();
+    //        Debug.Log($"{DiceNumber} has been rolled!");
+
+    //    }
+    //    else if (Rb.IsSleeping() && Dice.isThrown)
+    //    else if (Rb.IsSleeping() && Dice.hasLanded && Dice.isThrown)
+    //            {
+    //                Debug.Log("Roll Again");
+    //                Dice.RollAgain();
+    //            }
+    //}
 
 }
