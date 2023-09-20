@@ -89,10 +89,10 @@ public class Dice : MonoBehaviour
     internal void Roll()
     {
         isThrown = true;
-        rb.AddForce(new Vector3(0,-1,0)*100, ForceMode.Impulse);
+        rb.AddForce(new Vector3(-1, -1, 2) * 30 , ForceMode.Impulse);
         rb.useGravity = true;
         // 회전력, 비틀림 
-        rb.AddTorque(Random.Range(0, 700), Random.Range(0, 500), Random.Range(0, 1000));
+        rb.AddTorque(Random.Range(0, 700), Random.Range(0, 500), Random.Range(0, 500));
         //DiceNumberCheck();
     }
 

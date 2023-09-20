@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DiceRoom : MonoBehaviour
 {
-    public Dice Dice;
+    private Dice Dice;
     private Rigidbody Rb;
     public int DiceNumber = 0;
 
