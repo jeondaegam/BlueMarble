@@ -9,6 +9,12 @@ public class UIPlayBoard : MonoBehaviour
 {
 
     public Button RollingDiceButton;
+    public Text WinnerText;
+
+    public void Awake()
+    {
+        DontDestroyOnLoad(WinnerText.gameObject);
+    }
 
     private void OnEnable()
     {
@@ -17,7 +23,15 @@ public class UIPlayBoard : MonoBehaviour
         //GameManager.Instance.Dice.OnNumberChanged += MoveToPlayBoard;
         //SceneMASceneManager.activeSceneChanged += OnSceneChanged;
 
-        SceneManager.activeSceneChanged += OnSceneChanged; // 얘만 설정하니까 씬이 로드될 때 & 다른씬으로 넘어갈때 2번 호출됨 
+        SceneManager.activeSceneChanged += OnSceneChanged; // 얘만 설정하니까 씬이 로드될 때 & 다른씬으로 넘어갈때 2번 호출됨
+
+        // GameClear EventListener
+        GameManager.Instance.Stones[0].OnGameClear += UpdateWinnerUI;
+    }
+
+    private void UpdateWinnerUI()
+    {
+        WinnerText.text = "Game Clear !";
     }
 
     private void OnDisable()
