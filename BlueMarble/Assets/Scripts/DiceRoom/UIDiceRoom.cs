@@ -10,9 +10,9 @@ public class UIDiceRoom : MonoBehaviour
 
     public Button RollingDiceButton;
     public DiceRoom DiceRoom;
-    public TextMeshPro DiceNumberText;
+    public TextMeshProUGUI DiceNumberText;
 
-    public UIStatus DiceNumber;
+    //public UIStatus DiceNumber;
 
     private void OnEnable()
     {
@@ -32,7 +32,7 @@ public class UIDiceRoom : MonoBehaviour
 
     }
 
-    private void OnSceneChanged(Scene arg0, Scene arg1)
+    private void OnSceneChanged(Scene prevScene, Scene currentScene)
     {
         Debug.Log("Dice room 씬으로 왔어용 ~ ");
     }
@@ -65,8 +65,7 @@ public class UIDiceRoom : MonoBehaviour
 
     private void UpdateDiceNumberUI()
     {
-        DiceNumberText.text =
-            "Number :" + GameManager.Instance.Dice.DiceNumber.ToString();
+        DiceNumberText.text = GameManager.Instance.Dice.DiceNumber.ToString();
     }
 
     private void MoveToPlayBoard()
