@@ -16,6 +16,7 @@ public class Stone : MonoBehaviour
     public int Steps;
 
     private bool IsMoving;
+    private bool isDone = false;
 
     private void Awake()
     {
@@ -101,26 +102,47 @@ public class Stone : MonoBehaviour
             //    Debug.Log("움직임 종료");
             //}
 
-            if (NextNode == CurrentRoute.ChildNodeList.Count-1)
+
+            Debug.Log($"Steps: {Steps}");
+            //if (isDone)
+            //{
+            //    Debug.Log("도착");
+            //    Steps = 0;
+                
+            //}
+            // 이동하기 전에 멈춰야함
+            if (RoutePosition == 0)
             {
-                Steps = 1;
+                Steps = 0;
+                Debug.Log("게임 종료 Step:" +Steps);
+                yield break;
             }
 
 
             while (MoveToNextNode(nextPosition))
             {
+                Debug.Log("이동합니다 ");
                 yield return null;
             }
+
+            if ((NextNode == CurrentRoute.ChildNodeList.Count-1) && Steps > 1)
+            {
+                Debug.Log("다음 칸이 마지막 ");
+                Steps = 1;
+                isDone = true;
+            }
+
+
             yield return new WaitForSeconds(0.1f);
             Steps--;
             //RoutePosition++;
         }
         IsMoving = false;
 
-        if (CurrentRoute.transform.position == CurrentRoute.ChildNodeList[CurrentRoute.ChildNodeList.Count-1].position)
-        {
-            Debug.Log("종료 지점 도착");
-        }
+        //if (CurrentRoute.transform.position == CurrentRoute.ChildNodeList[CurrentRoute.ChildNodeList.Count-1].position)
+        //{
+        //    Debug.Log("종료 지점 도착");
+        //}
 
     }
 
