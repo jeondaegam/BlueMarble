@@ -43,6 +43,7 @@ public class Die : MonoBehaviour {
     {
         get
         {
+            Debug.Log("얘가 계쏙 도는건?");
             return !(GetComponent<Rigidbody>().velocity.sqrMagnitude < .1F && GetComponent<Rigidbody>().angularVelocity.sqrMagnitude < .1F);
         }
     }
