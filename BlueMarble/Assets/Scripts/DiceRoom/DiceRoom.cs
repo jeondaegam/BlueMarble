@@ -35,7 +35,6 @@ public class DiceRoom : MonoBehaviour
         else if (Rb.IsSleeping() && Dice.isThrown)
         //else if (Rb.IsSleeping() && Dice.hasLanded && Dice.isThrown)
         {
-            Debug.Log("Roll Again");
             Dice.RollAgain();
         }
     }

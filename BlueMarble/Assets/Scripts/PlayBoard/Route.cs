@@ -47,5 +47,6 @@ public class Route : MonoBehaviour
     void Start()
     {
         FillNodes();
+        Debug.Log("Route : ChildeList size" + ChildNodeList.Count);
     }
 }

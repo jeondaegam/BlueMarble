@@ -11,6 +11,7 @@ public class UIDiceRoom : MonoBehaviour
     public Button RollingDiceButton;
     public DiceRoom DiceRoom;
     public TextMeshProUGUI DiceNumberText;
+    public ParticleSystem Particle;
 
     //public UIStatus DiceNumber;
 
@@ -35,6 +36,11 @@ public class UIDiceRoom : MonoBehaviour
     private void OnSceneChanged(Scene prevScene, Scene currentScene)
     {
         Debug.Log("Dice room 씬으로 왔어용 ~ ");
+        //Particle = FindObjectOfType<ParticleSystem>();
+        //if(Particle.isPlaying)
+        //{
+        //    Particle.Stop();
+        //}
     }
 
     private void OnDisable()
@@ -54,18 +60,24 @@ public class UIDiceRoom : MonoBehaviour
         // 버튼 클릭말고 스페이스바로 구현하면 좋을듯 -> 오래 누를수록 +게이지 
         //RollingDiceButton.onClick.AddListener(OnRollingDiceBtnClicked);
         //StartCoroutine(UIUpdate());
+        //Particle.Stop();
+        Particle = FindObjectOfType<ParticleSystem>();
     }
 
     private void OnRollingDiceBtnClicked()
     {
         DiceRoom.RollDice();
-        Debug.Log($"Number is {GameManager.Instance.Dice.DiceNumber}");
+        //Debug.Log($"Number is {GameManager.Instance.Dice.DiceNumber}");
     }
 
 
     private void UpdateDiceNumberUI()
     {
         DiceNumberText.text = GameManager.Instance.Dice.DiceNumber.ToString();
+        //if (!Particle.isPlaying)
+        //{
+        //    Particle.Play();
+        //}
     }
 
     private void MoveToPlayBoard()

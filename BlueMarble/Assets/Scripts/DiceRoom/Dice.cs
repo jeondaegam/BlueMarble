@@ -79,7 +79,7 @@ public class Dice : MonoBehaviour
         }
         if (OnNumberChanged != null)
         {
-            Debug.Log($"complete event call!! {DiceNumber}");
+            //Debug.Log($"complete event call!! {DiceNumber}");
             OnNumberChanged();
         }
         return DiceNumber;

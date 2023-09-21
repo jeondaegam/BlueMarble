@@ -24,7 +24,7 @@ public class Stone : MonoBehaviour
 
     private void OnEnable()
     {
-        Steps = GameManager.Instance.Dice.DiceNumber;
+        //Steps = GameManager.Instance.Dice.DiceNumber; durl dlfeks wntjr 이거 없어도 됨 안
 
     }
 
@@ -82,8 +82,9 @@ public class Stone : MonoBehaviour
         }
         IsMoving = true;
 
+        Debug.Log($"Stone : Child Node Size: {CurrentRoute.ChildNodeList.Count}");
 
-        while (Steps > 0)
+        while (Steps > 0) //1칸 이상이 남았을 때 
         {
             RoutePosition++;
             RoutePosition %= CurrentRoute.ChildNodeList.Count;
@@ -94,11 +95,17 @@ public class Stone : MonoBehaviour
 
             Debug.Log($"현재위치::{CurrentRoute.transform} , 목적지 : {RoutePosition}, 다음칸 : {NextNode}");
 
-            if (RoutePosition == 0 || (RoutePosition == CurrentRoute.ChildNodeList.Count - 1))
+            //if (RoutePosition == 0 || (RoutePosition == CurrentRoute.ChildNodeList.Count - 1))
+            //{
+            //    Steps = 1;
+            //    Debug.Log("움직임 종료");
+            //}
+
+            if (NextNode == CurrentRoute.ChildNodeList.Count-1)
             {
                 Steps = 1;
-                Debug.Log("움직임 종료");
             }
+
 
             while (MoveToNextNode(nextPosition))
             {
@@ -109,6 +116,12 @@ public class Stone : MonoBehaviour
             //RoutePosition++;
         }
         IsMoving = false;
+
+        if (CurrentRoute.transform.position == CurrentRoute.ChildNodeList[CurrentRoute.ChildNodeList.Count-1].position)
+        {
+            Debug.Log("종료 지점 도착");
+        }
+
     }
 
     bool MoveToNextNode(Vector3 goal)
