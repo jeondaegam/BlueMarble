@@ -32365,21 +32365,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2182586553598080429, guid: 4f106067e69e37b4bbc1ece430c67a71,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.335715
-      objectReference: {fileID: 0}
-    - target: {fileID: 2182586553598080429, guid: 4f106067e69e37b4bbc1ece430c67a71,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.335715
-      objectReference: {fileID: 0}
-    - target: {fileID: 2182586553598080429, guid: 4f106067e69e37b4bbc1ece430c67a71,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.335715
-      objectReference: {fileID: 0}
-    - target: {fileID: 2182586553598080429, guid: 4f106067e69e37b4bbc1ece430c67a71,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: -309.01593
       objectReference: {fileID: 0}
@@ -34076,8 +34061,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -5.100006, y: 5.799988}
-  m_SizeDelta: {x: 165, y: 35}
+  m_AnchoredPosition: {x: -5.0999756, y: 5.799988}
+  m_SizeDelta: {x: 300, y: 70}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1093914749
 MonoBehaviour:
@@ -48097,11 +48082,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 585188cdc4600544eb408bee749e4b3a, type: 3}
-    m_FontSize: 30
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 40
+    m_MaxSize: 70
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -48871,7 +48856,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -10, y: 10}
-  m_SizeDelta: {x: 160, y: 35}
+  m_SizeDelta: {x: 300, y: 70}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1659415472
 MonoBehaviour:

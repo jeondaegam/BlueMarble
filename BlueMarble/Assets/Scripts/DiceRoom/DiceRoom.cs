@@ -38,27 +38,4 @@ public class DiceRoom : MonoBehaviour
             Dice.RollAgain();
         }
     }
-
-    //IEnumerator DiceReset()
-    //{
-    //    Debug.Log("Call coroutine");
-    //    yield return new WaitForSeconds(2f);
-
-    //    if (!Dice.hasLanded && Rb.IsSleeping() && Dice.isThrown)
-    //    {
-    //        Debug.Log("요기1");
-    //        Dice.hasLanded = true;
-    //        Rb.useGravity = false;
-    //        DiceNumber = Dice.DiceNumberCheck();
-    //        Debug.Log($"{DiceNumber} has been rolled!");
-
-    //    }
-    //    else if (Rb.IsSleeping() && Dice.isThrown)
-    //    else if (Rb.IsSleeping() && Dice.hasLanded && Dice.isThrown)
-    //            {
-    //                Debug.Log("Roll Again");
-    //                Dice.RollAgain();
-    //            }
-    //}
-
 }

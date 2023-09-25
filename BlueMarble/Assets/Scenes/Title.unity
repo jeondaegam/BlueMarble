@@ -1078,6 +1078,7 @@ MonoBehaviour:
   - {fileID: 7010916238496544910, guid: dfa57d411522347dd9f68660582833fa, type: 3}
   Stones:
   - {fileID: 0}
+  Particle: {fileID: 660291766361970316, guid: 822edbd828ead4e59ad8862277cb4903, type: 3}
 --- !u!4 &898040004
 Transform:
   m_ObjectHideFlags: 0
