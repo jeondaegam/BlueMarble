@@ -1071,9 +1071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267e49fb4ea5347b1a83adea5fcf5daa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DicePrefab: {fileID: 2208639779965895213, guid: 774db49c99fb74b019b4ca24aeeaa2a9,
-    type: 3}
-  Dice: {fileID: 0}
+  Dice: {fileID: 1096599021652162277, guid: 774db49c99fb74b019b4ca24aeeaa2a9, type: 3}
   PlayerPrefabs:
   - {fileID: 7010916238496544910, guid: dfa57d411522347dd9f68660582833fa, type: 3}
   Stones:

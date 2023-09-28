@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
     private AsyncOperation LoadingOp; // ?
 
     // 주사위
-    public GameObject DicePrefab;
     public Dice Dice;
 
     // 플레이어
@@ -30,7 +29,6 @@ public class GameManager : MonoBehaviour
 
     // 경로
     //public GameObject Map;
-
 
 
     // 항상 메모리에 떠있고 다른 씬에서도 사용할 수 있도록 설정 
@@ -69,8 +67,7 @@ public class GameManager : MonoBehaviour
 
     private void LoadDice()
     {
-        GameObject go = Instantiate(DicePrefab, DicePrefab.transform.position, DicePrefab.transform.rotation);
-        Dice = go.GetComponent<Dice>();
+        Dice = Instantiate(Dice, Dice.transform.position, Dice.transform.rotation);
     }
 
 
@@ -83,12 +80,6 @@ public class GameManager : MonoBehaviour
             Stones[i] = go.GetComponent<Stone>();
         }
         //Stones[0].GetComponent<Rigidbody>().useGravity = !enabled;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void LoadScene(string sceneName, bool activation = true)
