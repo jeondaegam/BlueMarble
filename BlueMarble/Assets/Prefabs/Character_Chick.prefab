@@ -427,7 +427,7 @@ GameObject:
   - component: {fileID: 7875078896314663258}
   - component: {fileID: -6263065620561905615}
   m_Layer: 0
-  m_Name: Toon Chick
+  m_Name: Character_Chick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
