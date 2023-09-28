@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Player : MonoBehaviour
 {
@@ -50,18 +51,18 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Space) && !IsMoving)
-        //if (GameManager.Instance.Dice.DiceNumber > 0 && !IsMoving)
-        if (Steps > 0 && !IsMoving)
+        if (GameManager.Instance.IsTestMode)
+        {
+            RollDiceWithSpaceBar();
+        }
+
+        else if (Steps > 0 && !IsMoving)
         {
             // 주사위 굴리기
-            //Steps = Random.Range(1, 4);
             Steps = GameManager.Instance.Dice.DiceNumber;
             Debug.Log("Dice Rolled ::" + Steps);
 
             StartCoroutine(Move());
-            //MoveStep();
-
         }
         //GameManager.Instance.Dice.OnNumberChanged += Move();
         //Vector3 movementDirection = rb.velocity.normalized;
@@ -72,6 +73,16 @@ public class Player : MonoBehaviour
         //    transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         //}
 
+    }
+
+    private void RollDiceWithSpaceBar()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && !IsMoving)
+        {
+            Steps = Random.Range(1, 7);
+            Debug.Log("TestMode Dice Rolled ::" + Steps);
+            StartCoroutine(Move());
+        }
     }
 
     public IEnumerator Move()

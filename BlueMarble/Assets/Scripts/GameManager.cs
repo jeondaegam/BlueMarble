@@ -28,9 +28,7 @@ public class GameManager : MonoBehaviour
     // 파티클
     public ParticleSystem Particle;
 
-    // 경로
-    //public GameObject Map;
-
+    public bool IsTestMode = false;
 
     // 항상 메모리에 떠있고 다른 씬에서도 사용할 수 있도록 설정 
     public void Awake()
