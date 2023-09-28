@@ -44,6 +44,8 @@ public class UIPlayBoard : MonoBehaviour
     {
         Debug.Log("Play Board로 왔어요 ~ ");
         GameManager.Instance.Stones[0].Steps = GameManager.Instance.Dice.DiceNumber;
+        // 플레이보드에 왔을 때는 중력을 사용해야함 
+        //GameManager.Instance.Stones[0].GetComponent<Rigidbody>().useGravity = enabled;
     }
 
     private void MoveToPlayBoard()
@@ -60,6 +62,8 @@ public class UIPlayBoard : MonoBehaviour
 
     private void HandleRollingDiceBtnClicked()
     {
+        // 다이스룸 씬으 넘어가기전에 중력 해제
+        //GameManager.Instance.Stones[0].GetComponent<Rigidbody>().useGravity = !enabled;
         GameManager.Instance.LoadScene("DiceRoom");
     }
 

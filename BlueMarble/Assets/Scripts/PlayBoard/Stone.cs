@@ -5,7 +5,11 @@ using UnityEngine;
 
 public class Stone : MonoBehaviour
 {
+
     public event Action OnGameClear;
+
+    public float rotationSpeed = 1.0f;
+    //private Rigidbody rb;
 
     // 현재 위치
     public Route CurrentRoute;
@@ -18,11 +22,31 @@ public class Stone : MonoBehaviour
 
     private bool IsMoving;
 
+    //float h, v;
+
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
     }
 
+    //private void Start()
+    //{
+    //    rb = GetComponent<Rigidbody>();
+    //}
+
+    //private void FixedUpdate()
+    //{
+    //    h = Input.GetAxis("Horizontal");
+    //    v = Input.GetAxis("Vertical");
+    //    Vector3 dir = new Vector3(h, 0, v);
+
+    //    if (h !=0 && v !=0)
+    //    {
+    //        transform.position += dir * 10.0f * Time.deltaTime;
+    //        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(dir),
+    //            Time.deltaTime * rotationSpeed);
+    //    }
+    //}
 
     private void Update()
     {
@@ -40,6 +64,14 @@ public class Stone : MonoBehaviour
 
         }
         //GameManager.Instance.Dice.OnNumberChanged += Move();
+        //Vector3 movementDirection = rb.velocity.normalized;
+
+        //if (movementDirection != Vector3.zero)
+        //{
+        //    Quaternion targetRotation = Quaternion.LookRotation(movementDirection);
+        //    transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        //}
+
     }
 
     public IEnumerator Move()

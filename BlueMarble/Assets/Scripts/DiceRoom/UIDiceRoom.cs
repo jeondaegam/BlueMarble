@@ -11,7 +11,7 @@ public class UIDiceRoom : MonoBehaviour
     public Button RollingDiceButton;
     public DiceRoom DiceRoom;
     public TextMeshProUGUI DiceNumberText;
-    public ParticleSystem Particle;
+    //public GameObject ParticleObj;
 
     //public UIStatus DiceNumber;
 
@@ -37,10 +37,24 @@ public class UIDiceRoom : MonoBehaviour
     {
         Debug.Log("Dice room 씬으로 왔어용 ~ ");
         //Particle = FindObjectOfType<ParticleSystem>();
-        //if(Particle.isPlaying)
+        //if (Particle.isPlaying)
         //{
         //    Particle.Stop();
         //}
+        // 에러때문에 사용 못함
+        // MissingReferenceException: The object of type 'RectTransform'
+        // has been destroyed but you are still trying to access it.
+        //if (GameManager.Instance.Particle.isPlaying)
+        //{
+        //    Debug.Log("파티클 멈춰 ");
+        //    GameManager.Instance.Particle.Stop();
+        //}
+        //Debug.Log("호출은 되는?");
+        //GameManager.Instance.Particle.Stop();
+        //GameManager.Instance.Particle.enableEmission = false;
+
+        // 중력 사용 X
+        //GameManager.Instance.Stones[0].GetComponent<Rigidbody>().useGravity = !enabled;
     }
 
     private void OnDisable()
@@ -61,7 +75,7 @@ public class UIDiceRoom : MonoBehaviour
         //RollingDiceButton.onClick.AddListener(OnRollingDiceBtnClicked);
         //StartCoroutine(UIUpdate());
         //Particle.Stop();
-        Particle = FindObjectOfType<ParticleSystem>();
+        //Particle = FindObjectOfType<ParticleSystem>();
     }
 
     private void OnRollingDiceBtnClicked()
@@ -78,6 +92,13 @@ public class UIDiceRoom : MonoBehaviour
         //{
         //    Particle.Play();
         //}
+
+        //if (GameManager.Instance.Particle.isStopped)
+        //{
+        //    Debug.Log("파티클 실행 해 ");
+        //    GameManager.Instance.Particle.Play();
+        //}
+        //GameManager.Instance.Particle.enableEmission = true;
     }
 
     private void MoveToPlayBoard()

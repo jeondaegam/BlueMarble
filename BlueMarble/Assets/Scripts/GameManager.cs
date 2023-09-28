@@ -23,8 +23,14 @@ public class GameManager : MonoBehaviour
 
     // 플레이어
     public GameObject[] PlayerPrefabs;
-
     public Stone[] Stones;
+
+    // 파티클
+    public ParticleSystem Particle;
+
+    // 경로
+    //public GameObject Map;
+
 
 
     // 항상 메모리에 떠있고 다른 씬에서도 사용할 수 있도록 설정 
@@ -38,9 +44,28 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         LoadDice();
+        //LoadMap();
         SpawnPlayers();
+        Particle.Stop();
     }
 
+    //private void LoadMap()
+    //{
+    //    GameObject map = Instantiate(Map, Map.transform.position, Map.transform.rotation);
+    //}
+
+    //private void OnEnable()
+    //{
+    //    GameManager.Instance.Dice.OnNumberChanged += PlayParticle;
+    //}
+
+    //private void PlayParticle()
+    //{
+    //    if(Particle.isStopped)
+    //    {
+    //        Particle.Play();
+    //    }
+    //}
 
     private void LoadDice()
     {
@@ -56,7 +81,8 @@ public class GameManager : MonoBehaviour
             GameObject go = Instantiate(PlayerPrefabs[i],
                 PlayerPrefabs[i].transform.position, PlayerPrefabs[i].transform.rotation);
             Stones[i] = go.GetComponent<Stone>();
-        } 
+        }
+        //Stones[0].GetComponent<Rigidbody>().useGravity = !enabled;
     }
 
     // Update is called once per frame

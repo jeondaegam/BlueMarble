@@ -7,6 +7,11 @@ public class Route : MonoBehaviour
     Transform[] ChildObjects;
     public List<Transform> ChildNodeList = new List<Transform>();
 
+    //private void Awake()
+    //{
+    //    DontDestroyOnLoad(gameObject);
+    //}
+
     // 기즈모로 필드를 연결한다.
     void OnDrawGizmos()
     {
