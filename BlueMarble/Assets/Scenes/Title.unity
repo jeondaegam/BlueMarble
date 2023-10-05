@@ -1074,10 +1074,10 @@ MonoBehaviour:
   Dice: {fileID: 1096599021652162277, guid: 774db49c99fb74b019b4ca24aeeaa2a9, type: 3}
   CharacterPrefabs:
   - {fileID: 7763845254346832171, guid: e06bfcf68f72b43d89c4987d469b796a, type: 3}
-  - {fileID: 5367000307829347432, guid: a464698a45a5e4c1e90ea7e2878efcfe, type: 3}
   Players: []
   PlayerCount: 2
   Particle: {fileID: 660291766361970316, guid: 822edbd828ead4e59ad8862277cb4903, type: 3}
+  IsTestMode: 0
 --- !u!4 &898040004
 Transform:
   m_ObjectHideFlags: 0
