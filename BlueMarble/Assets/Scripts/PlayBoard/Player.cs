@@ -30,25 +30,6 @@ public class Player : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    //private void Start()
-    //{
-    //    rb = GetComponent<Rigidbody>();
-    //}
-
-    //private void FixedUpdate()
-    //{
-    //    h = Input.GetAxis("Horizontal");
-    //    v = Input.GetAxis("Vertical");
-    //    Vector3 dir = new Vector3(h, 0, v);
-
-    //    if (h !=0 && v !=0)
-    //    {
-    //        transform.position += dir * 10.0f * Time.deltaTime;
-    //        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(dir),
-    //            Time.deltaTime * rotationSpeed);
-    //    }
-    //}
-
     private void Update()
     {
         if (GameManager.Instance.IsTestMode)

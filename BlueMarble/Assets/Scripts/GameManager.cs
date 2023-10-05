@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     /*
      * GameManager
      *  - Static한 정보들을 들고있는다. 
-     *  - 씬이 이동되더라도 계속 유지되어야하는 Player 정보 등이 들어있다 . 
+     *  - 씬이 이동되더라도 계속 유지되어야하는 Player 정보 등을 저장
      *  - 실제 기능을 GameManager가 들고 있는다.      
      * */
 
@@ -41,16 +41,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         LoadDice();
-        //LoadMap();
-        //Players = new GameObject[PlayerCount];
         SpawnPlayers();
-        Particle.Stop();
+        //Particle.Stop();
     }
-
-    //private void LoadMap()
-    //{
-    //    GameObject map = Instantiate(Map, Map.transform.position, Map.transform.rotation);
-    //}
 
     //private void OnEnable()
     //{
@@ -85,7 +78,7 @@ public class GameManager : MonoBehaviour
             // 플레이어는 노드를 따라 칸을 이동하는 등의 별도 기능이 필요하므로 플레이어 스크립트가 적용된 Player type으로 받아야 한다 
             GameObject go = Instantiate(CharacterPrefabs[i],
                 CharacterPrefabs[i].transform.position, CharacterPrefabs[i].transform.rotation);
-            // 프리팹으로 가져온 캐릭터 오브젝트를 Plyaer타입으로 만들어준다 
+            // 프리팹으로 가져온 캐릭터 오브젝트를 Plyaer 타입으로 만들어준다 
             Players[i] = go.GetComponent<Player>();
         }
 

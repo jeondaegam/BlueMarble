@@ -17,20 +17,18 @@ public class UIDiceRoom : MonoBehaviour
 
     private void OnEnable()
     {
-        // 나온 숫자를 화면에 띄운다 -> UI Update
+        // 주사위를 굴리면 -> UI Update
         GameManager.Instance.Dice.OnNumberChanged += UpdateDiceNumberUI;
-        // 주사위 숫자 변경 -> 플레이보드로 씬 이동
-        //GameManager.Instance.Dice.OnNumberChanged += MoveToPlayBoard;
 
-        // 주사위 리셋 후 화면 전환
+        // 주사위가 리셋되면  -> 플레이보드로 씬 전환
         GameManager.Instance.Dice.OnDiceReset += MoveToPlayBoard;
 
         // Event Listener
         // 주사위 굴리기 버튼 클릭
         RollingDiceButton.onClick.AddListener(OnRollingDiceBtnClicked);
 
+        // 다이스룸으로 씬이 전환되면 
         SceneManager.activeSceneChanged += OnSceneChanged;
-
     }
 
     private void OnSceneChanged(Scene prevScene, Scene currentScene)
